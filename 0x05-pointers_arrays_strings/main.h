@@ -7,4 +7,8 @@ void swap_int(int *a, int *b);
 void _puts(char *str);
 
 
+
+
+
+int _atoi(char *s);
 #endif
