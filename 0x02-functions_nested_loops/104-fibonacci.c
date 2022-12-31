@@ -8,26 +8,41 @@
 
 int main(void)
 {
-	int i;
-	long int f1, f2, f3;
+	int count;
+	unsigned long i, j, k;
+	unsigned long m, n, p, carry;
 
-	f1 = 1;
-	f2 = 2;
-	f3 = 0;
-	for (i = 1; i <= 98; i++)
+	count = 0;
+	i = 0;
+	j = 1;
+	for (count = 1; count <= 91; count++)
 	{
-		if (i == 1)
-			printf("%lu", f1);
-		else if (i == 2)
-			printf(", %lu", f2);
-		else
-		{
-			f3 = f1 + f2;
-			printf(", %lu", f3);
-			f1 = f2;
-			f2 = f3;
-		}
+		k = i + j;
+		i = j;
+		j = k;
+		printf("%lu, ", k);
 	}
-	printf("\n");
+	m = i % 1000;
+	i = i / 1000;
+	n = j % 1000;
+	j = j / 1000;
+	while (count <= 98)
+	{
+		carry = (m + n) / 1000;
+		p = (m + n) - carry * 1000;
+		k = (i + j) + carry;
+		m = n;
+		n = p;
+		i = j;
+		j = k;
+		if (p >= 100)
+			printf("%lu%lu", k, p);
+		else
+			printf("%lu0%lu", k, p);
+		if (count != 98)
+			printf(", ");
+		count++;
+	}
+	putchar('\n');
 	return (0);
 }
