@@ -4,7 +4,7 @@
 *int mul- a function that multiplies two integers
 *@a: parameter for int mul
 *@b: parameter for int mul
-*Return: c if successful
+*Return: muitp if successful
 */
 
 int mul(int a, int b)
